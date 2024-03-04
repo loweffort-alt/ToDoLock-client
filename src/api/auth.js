@@ -1,4 +1,5 @@
 import instance from "./axios.js";
+import { baseURL } from "./baseURL.js";
 
 export const registerRequest = (user) => instance.post(`/register`, user);
 
@@ -9,7 +10,7 @@ export const logoutRequest = () => instance.post(`/logout`);
 export const verifyTokenRequest = () => instance.get(`/verify`);
 
 export const fetchRegisterRequest = (user) =>
-  fetch(`https://todolock-server.onrender.com/api/register`, {
+  fetch(`${baseURL}/register`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",

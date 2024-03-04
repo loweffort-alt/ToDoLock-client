@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import {
   createTaskRequest,
   deleteTaskRequest,
@@ -6,6 +6,7 @@ import {
   getTasksRequest,
   updateTaskRequest,
 } from "../api/tasks";
+import { useAuth } from "./AuthContext";
 
 const TaskContext = createContext();
 
@@ -21,9 +22,11 @@ export const useTask = () => {
 
 export function TaskProvider({ children }) {
   const [tasks, setTasks] = useState([]);
+  //const { localCookies } = useAuth();
 
   const getTasks = async () => {
     try {
+      //console.log(localCookies);
       const res = await getTasksRequest();
       setTasks(res.data);
     } catch (error) {

@@ -1,7 +1,8 @@
 import axios from "axios";
+import { baseURL } from "./baseURL";
 
 const instance = axios.create({
-  baseURL: "https://todolock-server.onrender.com/api",
+  baseURL: baseURL,
   withCredentials: true,
 });
 

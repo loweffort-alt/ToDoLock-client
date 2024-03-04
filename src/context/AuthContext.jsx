@@ -22,6 +22,7 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(true);
+  //const [localCookies, setLocalCookies] = useState("");
 
   const signUp = async (user) => {
     try {
@@ -56,6 +57,14 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  //const cookies = () => {
+  //const localCookies = Cookies.get();
+  //if (!localCookies.token) {
+  //setLocalCookies("");
+  //}
+  //setLocalCookies(localCookies.token);
+  //};
+
   useEffect(() => {
     if (errors.length > 0) {
       const timer = setTimeout(() => {
@@ -67,6 +76,12 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const cookies = Cookies.get();
+    //if (!cookies.token) {
+    //setLocalCookies("");
+    //} else {
+    //setLocalCookies(cookies.token);
+    //}
+
     async function checkLogin() {
       if (!cookies.token) {
         setIsAuthenticated(false);
@@ -105,6 +120,7 @@ export const AuthProvider = ({ children }) => {
         user,
         isAuthenticated,
         errors,
+        //localCookies,
       }}
     >
       {children}
