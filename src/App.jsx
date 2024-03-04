@@ -15,7 +15,7 @@ function App() {
   return (
     <AuthProvider>
       <TaskProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/ToDoLock-client/">
           <main className="container mx-auto px-5 sm:px-10">
             <Navbar />
             <Routes>
