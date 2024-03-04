@@ -13,7 +13,6 @@ function RegisterPage() {
   const navigate = useNavigate();
 
   const onSubmit = handleSubmit((values) => {
-    console.log(isAuthenticated);
     signUp(values);
   });
 

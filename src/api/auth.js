@@ -9,7 +9,7 @@ export const logoutRequest = () => instance.post(`/logout`);
 export const verifyTokenRequest = () => instance.get(`/verify`);
 
 export const fetchRegisterRequest = (user) =>
-  fetch(`http://localhost:4000/api/register`, {
+  fetch(`https://todolock-server.onrender.com/api/register`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",
